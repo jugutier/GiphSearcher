@@ -19,7 +19,9 @@
 		7196F19B20CD984D005DE60B /* GiphyApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F19A20CD984D005DE60B /* GiphyApiManager.swift */; };
 		7196F19E20CDB481005DE60B /* GiphyCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F19D20CDB481005DE60B /* GiphyCollectionViewController.swift */; };
 		7196F1A020CDB503005DE60B /* GiphyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F19F20CDB502005DE60B /* GiphyCollectionViewCell.swift */; };
+		7196F1A420CDC1FE005DE60B /* GiphySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F1A320CDC1FE005DE60B /* GiphySection.swift */; };
 		7196F1A620CDC816005DE60B /* GiphyCollectionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F1A520CDC816005DE60B /* GiphyCollectionSectionView.swift */; };
+		7196F1A820CDCC8C005DE60B /* GiphyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F1A720CDCC8C005DE60B /* GiphyItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,9 @@
 		7196F19A20CD984D005DE60B /* GiphyApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyApiManager.swift; sourceTree = "<group>"; };
 		7196F19D20CDB481005DE60B /* GiphyCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyCollectionViewController.swift; sourceTree = "<group>"; };
 		7196F19F20CDB502005DE60B /* GiphyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyCollectionViewCell.swift; sourceTree = "<group>"; };
+		7196F1A320CDC1FE005DE60B /* GiphySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySection.swift; sourceTree = "<group>"; };
 		7196F1A520CDC816005DE60B /* GiphyCollectionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyCollectionSectionView.swift; sourceTree = "<group>"; };
+		7196F1A720CDCC8C005DE60B /* GiphyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyItem.swift; sourceTree = "<group>"; };
 		A9C6211403F171DB72842401 /* Pods-GiphSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcher/Pods-GiphSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		C9D27309650305F68CBBAC57 /* Pods-GiphSearcherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcherTests/Pods-GiphSearcherTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF8CA7180082B527A6F42409 /* Pods_GiphSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 				7196F19D20CDB481005DE60B /* GiphyCollectionViewController.swift */,
 				7196F19F20CDB502005DE60B /* GiphyCollectionViewCell.swift */,
 				7196F1A520CDC816005DE60B /* GiphyCollectionSectionView.swift */,
+				7196F1A320CDC1FE005DE60B /* GiphySection.swift */,
+				7196F1A720CDCC8C005DE60B /* GiphyItem.swift */,
 				7196F19420CD93F5005DE60B /* Network */,
 				7196F17820CD8E24005DE60B /* Main.storyboard */,
 				7196F17B20CD8E26005DE60B /* Assets.xcassets */,
@@ -338,6 +344,8 @@
 				7196F19920CD951B005DE60B /* GiphyService+Implementation.swift in Sources */,
 				7196F19720CD9445005DE60B /* GiphyService.swift in Sources */,
 				7196F19B20CD984D005DE60B /* GiphyApiManager.swift in Sources */,
+				7196F1A820CDCC8C005DE60B /* GiphyItem.swift in Sources */,
+				7196F1A420CDC1FE005DE60B /* GiphySection.swift in Sources */,
 				7196F19E20CDB481005DE60B /* GiphyCollectionViewController.swift in Sources */,
 				7196F17520CD8E24005DE60B /* AppDelegate.swift in Sources */,
 				7196F1A620CDC816005DE60B /* GiphyCollectionSectionView.swift in Sources */,
