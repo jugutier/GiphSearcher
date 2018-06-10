@@ -10,4 +10,5 @@ import UIKit
 
 enum GiphyService {
     case helloworld
+    case trending
 }

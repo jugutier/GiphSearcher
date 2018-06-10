@@ -11,12 +11,16 @@ import Moya
 
 // MARK: - TargetType Protocol Implementation
 extension GiphyService: TargetType {
+    static let API_KEY = "WpgNbhh0Tk4s9gYygbOjIH7z9XpmPX3A" //API Keys would never be on a tracked source file, they should be obfuscated and filled in through an environment variable in the build server.
+    
     var baseURL: URL {
         return URL(string: "https://api.giphy.com")!
     }
     
     var path: String {
         switch self {
+        case .trending:
+            return "/v1/gifs/trending"
         default:
             return "/"
         }
@@ -38,6 +42,8 @@ extension GiphyService: TargetType {
     
     var task: Task {
         switch self {
+        case .trending: // Always sends parameters in URL, regardless of which HTTP method is used
+            return .requestParameters(parameters: ["api_key": GiphyService.API_KEY], encoding: URLEncoding.queryString)
         default: // Send no parameters
             return .requestPlain
         }

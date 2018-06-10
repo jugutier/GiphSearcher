@@ -13,7 +13,7 @@ class GiphyApiManager: NSObject {
     
     static func getTrending() {
         let provider = MoyaProvider<GiphyService>()
-        provider.request(.helloworld) { result in
+        provider.request(.trending) { result in
             switch result {
             case let .success(moyaResponse):
                 let data = moyaResponse.data // Data, your JSON response is probably in here!
