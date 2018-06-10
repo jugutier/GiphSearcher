@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1636C0CA7985408F375F0469 /* Pods_GiphSearcherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8CA7180082B527A6F42409 /* Pods_GiphSearcherTests.framework */; };
+		575204A96B28D3C8D8536F2F /* Pods_GiphSearcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3139131B6FE5D62D6CCD8261 /* Pods_GiphSearcher.framework */; };
 		7196F17520CD8E24005DE60B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F17420CD8E24005DE60B /* AppDelegate.swift */; };
 		7196F17720CD8E24005DE60B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F17620CD8E24005DE60B /* ViewController.swift */; };
 		7196F17A20CD8E24005DE60B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7196F17820CD8E24005DE60B /* Main.storyboard */; };
@@ -26,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3139131B6FE5D62D6CCD8261 /* Pods_GiphSearcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphSearcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37E974D438346AB57429405E /* Pods-GiphSearcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcher/Pods-GiphSearcher.release.xcconfig"; sourceTree = "<group>"; };
+		657FB0292EF74E048C941D5D /* Pods-GiphSearcherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcherTests/Pods-GiphSearcherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7196F17120CD8E24005DE60B /* GiphSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7196F17420CD8E24005DE60B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7196F17620CD8E24005DE60B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +41,9 @@
 		7196F18520CD8E26005DE60B /* GiphSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiphSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7196F18920CD8E26005DE60B /* GiphSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphSearcherTests.swift; sourceTree = "<group>"; };
 		7196F18B20CD8E26005DE60B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9C6211403F171DB72842401 /* Pods-GiphSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcher/Pods-GiphSearcher.debug.xcconfig"; sourceTree = "<group>"; };
+		C9D27309650305F68CBBAC57 /* Pods-GiphSearcherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcherTests/Pods-GiphSearcherTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF8CA7180082B527A6F42409 /* Pods_GiphSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575204A96B28D3C8D8536F2F /* Pods_GiphSearcher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1636C0CA7985408F375F0469 /* Pods_GiphSearcherTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +72,8 @@
 				7196F17320CD8E24005DE60B /* GiphSearcher */,
 				7196F18820CD8E26005DE60B /* GiphSearcherTests */,
 				7196F17220CD8E24005DE60B /* Products */,
+				E421D2E43198664D1353FCAD /* Pods */,
+				BB0B69BF88EE76F55280F48F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +108,26 @@
 			path = GiphSearcherTests;
 			sourceTree = "<group>";
 		};
+		BB0B69BF88EE76F55280F48F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3139131B6FE5D62D6CCD8261 /* Pods_GiphSearcher.framework */,
+				CF8CA7180082B527A6F42409 /* Pods_GiphSearcherTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E421D2E43198664D1353FCAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9C6211403F171DB72842401 /* Pods-GiphSearcher.debug.xcconfig */,
+				37E974D438346AB57429405E /* Pods-GiphSearcher.release.xcconfig */,
+				657FB0292EF74E048C941D5D /* Pods-GiphSearcherTests.debug.xcconfig */,
+				C9D27309650305F68CBBAC57 /* Pods-GiphSearcherTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7196F18E20CD8E26005DE60B /* Build configuration list for PBXNativeTarget "GiphSearcher" */;
 			buildPhases = (
+				71DDB97373D497C4CD7F2B79 /* [CP] Check Pods Manifest.lock */,
 				7196F16D20CD8E24005DE60B /* Sources */,
 				7196F16E20CD8E24005DE60B /* Frameworks */,
 				7196F16F20CD8E24005DE60B /* Resources */,
+				75449E72F108DFD387A18D52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7196F19120CD8E26005DE60B /* Build configuration list for PBXNativeTarget "GiphSearcherTests" */;
 			buildPhases = (
+				410CD747B74365F8B3F5B2EE /* [CP] Check Pods Manifest.lock */,
 				7196F18120CD8E26005DE60B /* Sources */,
 				7196F18220CD8E26005DE60B /* Frameworks */,
 				7196F18320CD8E26005DE60B /* Resources */,
@@ -191,6 +226,73 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		410CD747B74365F8B3F5B2EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiphSearcherTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71DDB97373D497C4CD7F2B79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GiphSearcher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75449E72F108DFD387A18D52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GiphSearcher/Pods-GiphSearcher-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiphSearcher/Pods-GiphSearcher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7196F16D20CD8E24005DE60B /* Sources */ = {
@@ -356,16 +458,14 @@
 		};
 		7196F18F20CD8E26005DE60B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9C6211403F171DB72842401 /* Pods-GiphSearcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -375,16 +475,14 @@
 		};
 		7196F19020CD8E26005DE60B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37E974D438346AB57429405E /* Pods-GiphSearcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -394,17 +492,14 @@
 		};
 		7196F19220CD8E26005DE60B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 657FB0292EF74E048C941D5D /* Pods-GiphSearcherTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcherTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -415,17 +510,14 @@
 		};
 		7196F19320CD8E26005DE60B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9D27309650305F68CBBAC57 /* Pods-GiphSearcherTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcherTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
