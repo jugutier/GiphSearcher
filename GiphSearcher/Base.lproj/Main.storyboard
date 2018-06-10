@@ -35,13 +35,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fzm-Aq-Cer">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiphyCollectionCell" id="yBt-Th-m9q" customClass="GiphyCollectionViewCell" customModule="GiphSearcher" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="50" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -67,6 +67,27 @@
                             <outlet property="dataSource" destination="UeB-a9-90J" id="j6C-Xs-rhe"/>
                             <outlet property="delegate" destination="UeB-a9-90J" id="NEF-wH-NE3"/>
                         </connections>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiphySection" id="wyd-3C-C5b" customClass="GiphyCollectionSectionView" customModule="GiphSearcher" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKd-SJ-aMZ">
+                                    <rect key="frame" x="10" y="10" width="215" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="QKd-SJ-aMZ" secondAttribute="bottom" constant="10" id="UB0-gj-FM7"/>
+                                <constraint firstAttribute="trailing" secondItem="QKd-SJ-aMZ" secondAttribute="trailing" constant="150" id="X7s-gF-PfS"/>
+                                <constraint firstItem="QKd-SJ-aMZ" firstAttribute="leading" secondItem="wyd-3C-C5b" secondAttribute="leading" constant="10" id="t23-yf-Qih"/>
+                                <constraint firstItem="QKd-SJ-aMZ" firstAttribute="top" secondItem="wyd-3C-C5b" secondAttribute="top" constant="10" id="vXv-PW-sy9"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="QKd-SJ-aMZ" id="ssu-WA-zwC"/>
+                            </connections>
+                        </collectionReusableView>
                     </collectionView>
                     <navigationItem key="navigationItem" id="JL7-jt-ske">
                         <nil key="title"/>
