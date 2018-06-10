@@ -15,6 +15,8 @@
 		7196F17C20CD8E26005DE60B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7196F17B20CD8E26005DE60B /* Assets.xcassets */; };
 		7196F17F20CD8E26005DE60B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7196F17D20CD8E26005DE60B /* LaunchScreen.storyboard */; };
 		7196F18A20CD8E26005DE60B /* GiphSearcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F18920CD8E26005DE60B /* GiphSearcherTests.swift */; };
+		7196F19720CD9445005DE60B /* GiphyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F19620CD9445005DE60B /* GiphyService.swift */; };
+		7196F19920CD951B005DE60B /* GiphyService+Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F19820CD951B005DE60B /* GiphyService+Implementation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		7196F18520CD8E26005DE60B /* GiphSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiphSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7196F18920CD8E26005DE60B /* GiphSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphSearcherTests.swift; sourceTree = "<group>"; };
 		7196F18B20CD8E26005DE60B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7196F19620CD9445005DE60B /* GiphyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyService.swift; sourceTree = "<group>"; };
+		7196F19820CD951B005DE60B /* GiphyService+Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GiphyService+Implementation.swift"; sourceTree = "<group>"; };
 		A9C6211403F171DB72842401 /* Pods-GiphSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcher/Pods-GiphSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		C9D27309650305F68CBBAC57 /* Pods-GiphSearcherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcherTests/Pods-GiphSearcherTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF8CA7180082B527A6F42409 /* Pods_GiphSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,7 @@
 			children = (
 				7196F17420CD8E24005DE60B /* AppDelegate.swift */,
 				7196F17620CD8E24005DE60B /* ViewController.swift */,
+				7196F19420CD93F5005DE60B /* Network */,
 				7196F17820CD8E24005DE60B /* Main.storyboard */,
 				7196F17B20CD8E26005DE60B /* Assets.xcassets */,
 				7196F17D20CD8E26005DE60B /* LaunchScreen.storyboard */,
@@ -106,6 +111,23 @@
 				7196F18B20CD8E26005DE60B /* Info.plist */,
 			);
 			path = GiphSearcherTests;
+			sourceTree = "<group>";
+		};
+		7196F19420CD93F5005DE60B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7196F19520CD9408005DE60B /* Moya */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7196F19520CD9408005DE60B /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				7196F19620CD9445005DE60B /* GiphyService.swift */,
+				7196F19820CD951B005DE60B /* GiphyService+Implementation.swift */,
+			);
+			path = Moya;
 			sourceTree = "<group>";
 		};
 		BB0B69BF88EE76F55280F48F /* Frameworks */ = {
@@ -300,6 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7196F17720CD8E24005DE60B /* ViewController.swift in Sources */,
+				7196F19920CD951B005DE60B /* GiphyService+Implementation.swift in Sources */,
+				7196F19720CD9445005DE60B /* GiphyService.swift in Sources */,
 				7196F17520CD8E24005DE60B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,7 +489,10 @@
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -482,7 +509,10 @@
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -499,7 +529,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcherTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -517,7 +551,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MP6LTUDXZ5;
 				INFOPLIST_FILE = GiphSearcherTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jugutier.GiphSearcherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
