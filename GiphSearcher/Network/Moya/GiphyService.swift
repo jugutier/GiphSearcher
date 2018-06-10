@@ -9,4 +9,5 @@
 import UIKit
 
 enum GiphyService {
+    case helloworld
 }

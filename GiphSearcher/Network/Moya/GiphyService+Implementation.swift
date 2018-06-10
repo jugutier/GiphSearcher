@@ -12,27 +12,39 @@ import Moya
 // MARK: - TargetType Protocol Implementation
 extension GiphyService: TargetType {
     var baseURL: URL {
-        //TODO
+        return URL(string: "https://api.giphy.com")!
     }
     
     var path: String {
-        //TODO
+        switch self {
+        default:
+            return "/"
+        }
     }
     
     var method: Moya.Method {
-        //TODO
+        switch self {
+        default:
+            return .get
+        }
     }
     
     var sampleData: Data {
-        //TODO
+        switch self {
+        default:
+            return Data("Hello world!".utf8)
+        }
     }
     
     var task: Task {
-        //TODO
+        switch self {
+        default: // Send no parameters
+            return .requestPlain
+        }
     }
     
-    var headers: [String : String]? {
-        //TODO
+    var headers: [String: String]? {
+        return ["Content-type": "application/json"]
     }
     
 }
