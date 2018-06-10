@@ -76,4 +76,27 @@ extension Data {
     var decodedString: String {
         return String(decoding: self, as: UTF8.self)
     }
+    
+    // This function is for debugging only and should not be used in production.
+    func prettyJSON() -> String {
+        let value = self
+        let readingOptions = JSONSerialization.ReadingOptions.allowFragments
+        let writingOptions = JSONSerialization.WritingOptions.prettyPrinted
+        
+        do{
+            let jsonObject = try JSONSerialization.jsonObject(with: value, options: readingOptions)
+            if JSONSerialization.isValidJSONObject(jsonObject) {
+                let data = try JSONSerialization.data(withJSONObject: jsonObject, options: writingOptions)
+                if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+                    return string as String
+                }
+            }
+        }
+        catch {
+            debugPrint("error parsing json")
+        }
+        debugPrint("data is not a valid json")
+        return ""
+        
+    }
 }

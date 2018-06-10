@@ -19,7 +19,7 @@ class GiphyApiManager: NSObject {
             case let .success(moyaResponse):
                 let data = moyaResponse.data // Data, your JSON response is probably in here!
                 let statusCode = moyaResponse.statusCode // Int - 200, 401, 500, etc
-                let dataString = data.decodedString // Using convenience method we created
+                let dataString = data.prettyJSON() // Using convenience method we created
                 debugPrint("Received data \(statusCode)-- : \(dataString)")
             case let .failure(error):
                 debugPrint("error! -- \(error)")
@@ -33,7 +33,7 @@ class GiphyApiManager: NSObject {
             case let .success(moyaResponse):
                 let data = moyaResponse.data // Data, your JSON response is probably in here!
                 let statusCode = moyaResponse.statusCode // Int - 200, 401, 500, etc
-                let dataString = data.decodedString // Using convenience method we created
+                let dataString = data.prettyJSON() // Using convenience method we created
                 debugPrint("Received search data \(statusCode)-- : \(dataString)")
             case let .failure(error):
                 debugPrint("error! -- \(error)")
