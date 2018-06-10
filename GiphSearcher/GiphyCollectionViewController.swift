@@ -14,6 +14,7 @@ private let itemsPerRow: CGFloat = 3
 
 class GiphyCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var refreshButton : UIBarButtonItem?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.register(GiphyCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -39,7 +40,7 @@ class GiphyCollectionViewController: UICollectionViewController {
     }
 }
 
-
+// MARK: UICollectionViewDelegateFlowLayout
 extension GiphyCollectionViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
