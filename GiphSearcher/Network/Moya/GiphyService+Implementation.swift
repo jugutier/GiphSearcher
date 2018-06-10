@@ -32,7 +32,7 @@ extension GiphyService: TargetType {
     var sampleData: Data {
         switch self {
         default:
-            return Data("Hello world!".utf8)
+            return "Hello world!".utf8Encoded
         }
     }
     
@@ -47,4 +47,23 @@ extension GiphyService: TargetType {
         return ["Content-type": "application/json"]
     }
     
+}
+
+
+
+// MARK: - Helpers
+extension String {
+    var urlEscaped: String {
+        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
+    
+    var utf8Encoded: Data {
+        return data(using: .utf8)!
+    }
+}
+
+extension Data {
+    var decodedString: String {
+        return String(decoding: self, as: UTF8.self)
+    }
 }
