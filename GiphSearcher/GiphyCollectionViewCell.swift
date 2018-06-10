@@ -12,17 +12,26 @@ import AVKit
 class GiphyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
+    static let DEFAULT_VIDEO_URL = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
     var player: AVPlayer?
     
-    
-    func video(){
-        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
-        player = AVPlayer(url: videoURL)
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = self.bounds
-        self.layer.addSublayer(playerLayer)
-        player?.autoplay()
-        player?.play()
+    var _url : String?
+    var url : String {
+        get {
+            return _url ?? GiphyCollectionViewCell.DEFAULT_VIDEO_URL
+        }
+        set {
+            if let _ = URL(string: newValue) {
+                _url = newValue // Store new string value if it's a valid url..
+            }
+            let videoURL = URL(string: url)! // Use getter to get extra validations
+            player = AVPlayer(url: videoURL)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = self.bounds
+            self.layer.addSublayer(playerLayer)
+            player?.autoplay()
+            player?.play()
+        }
     }
 }
 

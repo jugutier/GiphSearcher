@@ -63,10 +63,6 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="UeB-a9-90J" id="j6C-Xs-rhe"/>
-                            <outlet property="delegate" destination="UeB-a9-90J" id="NEF-wH-NE3"/>
-                        </connections>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GiphySection" id="wyd-3C-C5b" customClass="GiphyCollectionSectionView" customModule="GiphSearcher" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,9 +92,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                            <connections>
-                                <outlet property="delegate" destination="UeB-a9-90J" id="BKo-HB-hRy"/>
-                            </connections>
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ju2-Qj-Oc9"/>
                     </navigationItem>
