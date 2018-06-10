@@ -21,6 +21,8 @@ extension GiphyService: TargetType {
         switch self {
         case .trending:
             return "/v1/gifs/trending"
+        case .search(_):
+            return "/v1/gifs/search"
         default:
             return "/"
         }
@@ -44,6 +46,8 @@ extension GiphyService: TargetType {
         switch self {
         case .trending: // Always sends parameters in URL, regardless of which HTTP method is used
             return .requestParameters(parameters: ["api_key": GiphyService.API_KEY], encoding: URLEncoding.queryString)
+        case let .search(query):
+            return .requestParameters(parameters: ["api_key": GiphyService.API_KEY, "q" : query], encoding: URLEncoding.queryString)
         default: // Send no parameters
             return .requestPlain
         }

@@ -11,8 +11,9 @@ import Moya
 
 class GiphyApiManager: NSObject {
     
+    static let provider = MoyaProvider<GiphyService>()
+    
     static func getTrending() {
-        let provider = MoyaProvider<GiphyService>()
         provider.request(.trending) { result in
             switch result {
             case let .success(moyaResponse):
@@ -20,6 +21,20 @@ class GiphyApiManager: NSObject {
                 let statusCode = moyaResponse.statusCode // Int - 200, 401, 500, etc
                 let dataString = data.decodedString // Using convenience method we created
                 debugPrint("Received data \(statusCode)-- : \(dataString)")
+            case let .failure(error):
+                debugPrint("error! -- \(error)")
+            }
+        }
+    }
+    
+    static func search(query: String) {
+        provider.request(.search(query: query)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let data = moyaResponse.data // Data, your JSON response is probably in here!
+                let statusCode = moyaResponse.statusCode // Int - 200, 401, 500, etc
+                let dataString = data.decodedString // Using convenience method we created
+                debugPrint("Received search data \(statusCode)-- : \(dataString)")
             case let .failure(error):
                 debugPrint("error! -- \(error)")
             }

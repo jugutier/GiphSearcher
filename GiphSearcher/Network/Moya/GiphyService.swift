@@ -11,4 +11,5 @@ import UIKit
 enum GiphyService {
     case helloworld
     case trending
+    case search(query: String)
 }
