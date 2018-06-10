@@ -11,7 +11,8 @@ target 'GiphSearcher' do
     pod 'RxCocoa',    '~> 4.0'
     pod 'RxDataSources', '~> 3.0'
 	pod 'Kingfisher', '~> 4.8'
-	
+	pod 'SwiftDate', '~> 4.5'
+    
 	target 'GiphSearcherTests' do
     	inherit! :search_paths
   	end
