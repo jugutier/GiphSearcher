@@ -7,7 +7,18 @@
 //
 
 import UIKit
+import AVKit
 
 class GiphyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    
+    
+    func video(){
+        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
+        let player = AVPlayer(url: videoURL)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.bounds
+        self.layer.addSublayer(playerLayer)
+        player.play()
+    }
 }
