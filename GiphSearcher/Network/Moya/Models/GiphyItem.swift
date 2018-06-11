@@ -14,14 +14,18 @@ import SwiftDate
 
 struct GiphyItem : Mappable , Decodable {
     var id: String?
-    var url: String?
+    var images: GiphyDownsizedImage?
     var import_datetime: String?
     var date: Date?
+    
+    var url: String? {
+        return images?.downsized_small?.mp4 ?? GiphyCollectionViewCell.DEFAULT_VIDEO_URL
+    }
 
     // Mapper init
     init(map: Mapper) throws {
         id = map.optionalFrom("id")
-        url = map.optionalFrom("images/downsized/url")
+        images = map.optionalFrom("images")
         import_datetime = map.optionalFrom("import_datetime")
         let currentRegion = Region(tz: TimeZoneName.current, cal: CalendarName.gregorian, loc: LocaleName.english)
         //Example date format: 2016-12-10 00:31:43

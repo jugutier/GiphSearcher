@@ -31,7 +31,7 @@ class GiphyApiManager: NSObject {
             }
     }
     
-    static func search(query: String) {
+    static func search(query: String, completion: @escaping GiphyItemRequestCompletion) {
         provider.request(.search(query: query)) { result in
             switch result {
             case let .success(moyaResponse):

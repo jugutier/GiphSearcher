@@ -46,7 +46,6 @@ func `$`(_ items: [Int]) -> [GiphyItem] {
     return items.map {
         var item = GiphyItem()
         item.id = String(describing:$0)
-        item.url = GiphyCollectionViewCell.DEFAULT_VIDEO_URL
         item.date = Date()
         return item
     }
