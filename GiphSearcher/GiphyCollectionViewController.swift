@@ -26,7 +26,6 @@ class GiphyCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         guard let collectionView = collectionView else { return }
         collectionView.dataSource = nil
-        collectionView.delegate = nil
         // needs to be nil because for some reason storyboard will set it to this class even though I removed the outlets.
         
 
