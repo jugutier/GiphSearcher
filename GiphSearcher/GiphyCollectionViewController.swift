@@ -19,18 +19,20 @@ private let itemsPerRow: CGFloat = 3
 class GiphyCollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var refreshButton : UIBarButtonItem?
+    var sections = [GiphySection]()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.dataSource = nil
         self.collectionView!.delegate = nil // needs to be nil because for some reason storyboard will set it to this class even though I removed the outlets.
-        let initialSections = initialValue()
+        
+        sections = initialSections()
         
         let ticks = Observable<Int>.interval(1, scheduler: MainScheduler.instance).map { _ in () }
-        let randomSections = Observable.of(ticks, (refreshButton?.rx.tap.asObservable())!)
+        let sectionsObserver = Observable.of(ticks, (refreshButton?.rx.tap.asObservable())!)
             .merge()
-            .scan(initialSections) { a, _ in
+            .scan(sections) { a, _ in
                 return a
             }
 //            .map { a in
@@ -44,7 +46,7 @@ class GiphyCollectionViewController: UICollectionViewController {
             configureSupplementaryView: configureSupplementaryView
         )
         
-        randomSections
+        sectionsObserver
             .bind(to: collectionView!.rx.items(dataSource: cvAnimatedDataSource))
             .disposed(by: disposeBag)
         
