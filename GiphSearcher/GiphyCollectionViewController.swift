@@ -24,11 +24,13 @@ class GiphyCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.dataSource = nil
-        self.collectionView!.delegate = nil // needs to be nil because for some reason storyboard will set it to this class even though I removed the outlets.
+        guard let collectionView = collectionView else { return }
+        collectionView.dataSource = nil
+        collectionView.delegate = nil
+        // needs to be nil because for some reason storyboard will set it to this class even though I removed the outlets.
         
 
-        sectionManager.bind(to: self.collectionView!)
+        sectionManager.bind(to: collectionView)
         
         /**
          TODO: Understand how to get bindings to work here.
@@ -36,13 +38,13 @@ class GiphyCollectionViewController: UICollectionViewController {
         GiphyApiManager.getTrending(completion: { items in
             self.sectionManager.sections.value[0].items.append(contentsOf: items)
             debugPrint("Received \(items.count) trending values")
-            self.collectionView?.reloadData() // I am aware that reloadData violates the Rx bindings, but because I couldn't get the observers to work I still decided to try.
+            collectionView.reloadData() // I am aware that reloadData violates the Rx bindings, but because I couldn't get the observers to work I still decided to try.
         })
          **/
         
         // touches
         Observable.of(
-            collectionView!.rx.modelSelected(GiphyItem.self)
+            collectionView.rx.modelSelected(GiphyItem.self)
             )
             .merge()
             .subscribe(onNext: { item in
