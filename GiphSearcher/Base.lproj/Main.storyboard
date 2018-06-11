@@ -92,6 +92,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <connections>
+                                <outlet property="delegate" destination="UeB-a9-90J" id="xvk-3c-xDe"/>
+                            </connections>
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ju2-Qj-Oc9"/>
                     </navigationItem>

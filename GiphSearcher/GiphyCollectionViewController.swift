@@ -30,6 +30,16 @@ class GiphyCollectionViewController: UICollectionViewController {
 
         sectionManager.bind(to: self.collectionView!)
         
+        /**
+         TODO: Understand how to get bindings to work here.
+         
+        GiphyApiManager.getTrending(completion: { items in
+            self.sectionManager.sections.value[0].items.append(contentsOf: items)
+            debugPrint("Received \(items.count) trending values")
+            self.collectionView?.reloadData() // I am aware that reloadData violates the Rx bindings, but because I couldn't get the observers to work I still decided to try.
+        })
+         **/
+        
         // touches
         Observable.of(
             collectionView!.rx.modelSelected(GiphyItem.self)
@@ -62,6 +72,33 @@ extension GiphyCollectionViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
+    }
+}
+
+
+extension GiphyCollectionViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        textField.addSubview(activityIndicator)
+        activityIndicator.frame = textField.bounds
+        activityIndicator.startAnimating()
+        
+        let searchQuery = textField.text ?? ""
+        /**
+         TODO: Understand how to get bindings to work here.
+         **/
+        GiphyApiManager.search(query: searchQuery) {
+            items in
+            activityIndicator.removeFromSuperview()
+            
+            print("Found \(items.count) matching \(searchQuery)")
+            self.sectionManager.sections.value[0].items.append(contentsOf: items)
+            self.collectionView?.reloadData()
+        }
+        
+        textField.text = nil
+        textField.resignFirstResponder()
+        return true
     }
 }
 
