@@ -93,7 +93,7 @@ extension GiphyCollectionViewController {
             return (
                 { (_, cellview, indexpath, item) in
                     let cell = cellview.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexpath) as! GiphyCollectionViewCell
-                    cell.url = item.url
+                    cell.url = item.url ?? ""
                     return cell
                     
             },
@@ -120,5 +120,11 @@ extension GiphyCollectionViewController {
 
 func `$`(_ items: [Int]) -> [GiphyItem] {
     // While they all have a different identifier, all our stubbed videos contain the same video url.
-    return items.map { GiphyItem(identifier: String(describing:$0), url: GiphyCollectionViewCell.DEFAULT_VIDEO_URL, date: Date()) }
+    return items.map {
+        var item = GiphyItem()
+        item.id = String(describing:$0)
+        item.url = GiphyCollectionViewCell.DEFAULT_VIDEO_URL
+        item.date = Date()
+        return item
+    }
 }

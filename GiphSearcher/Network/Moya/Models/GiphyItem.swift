@@ -1,0 +1,59 @@
+//
+//  GiphyItem.swift
+//  GiphSearcher
+//
+//  Created by Julian Gutierrez on 6/10/18.
+//  Copyright © 2018 Jugutier. All rights reserved.
+//
+
+import UIKit
+import Differentiator
+import RxDataSources
+import Mapper
+import SwiftDate
+
+struct GiphyItem : Mappable , Decodable {
+    var id: String?
+    var url: String?
+    var import_datetime: String?
+    var date: Date?
+
+    // Mapper init
+    init(map: Mapper) throws {
+        id = map.optionalFrom("id")
+        url = map.optionalFrom("images/downsized/url")
+        import_datetime = map.optionalFrom("import_datetime")
+        let currentRegion = Region(tz: TimeZoneName.current, cal: CalendarName.gregorian, loc: LocaleName.english)
+        //Example date format: 2016-12-10 00:31:43
+         date = (DateInRegion(string: import_datetime ?? "", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: currentRegion)?.absoluteDate)!
+    }
+    
+    init() {
+    }
+}
+
+extension GiphyItem : IdentifiableType, Equatable {
+    typealias Identity = String
+    
+    var identity: String {
+        return id ?? ""
+    }
+    
+    static func == (lhs: GiphyItem, rhs: GiphyItem) -> Bool {
+        return lhs.id == rhs.id && lhs.import_datetime == rhs.import_datetime
+    }
+}
+
+
+// MARK: Debugging
+extension GiphyItem : CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "GiphyItem(identifier: \(String(describing: id)), url: \(String(describing: url)), date: \(date!.timeIntervalSince1970))"
+    }
+}
+
+extension GiphyItem : CustomStringConvertible {
+    var description: String {
+        return "\(String(describing: id)), \(String(describing: url))"
+    }
+}
