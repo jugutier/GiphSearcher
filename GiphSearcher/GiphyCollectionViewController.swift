@@ -19,8 +19,8 @@ private let itemsPerRow: CGFloat = 3
 class GiphyCollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var refreshButton : UIBarButtonItem?
-    var sections : Variable<[GiphySection]> = Variable([])
-    let disposeBag = DisposeBag()
+
+    let sectionManager = SectionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +28,7 @@ class GiphyCollectionViewController: UICollectionViewController {
         self.collectionView!.delegate = nil // needs to be nil because for some reason storyboard will set it to this class even though I removed the outlets.
         
 
-        initialSections().forEach({ section in
-            self.sections.value.append(section)
-        })
-        
-        sections.asObservable()
-            .bind(to: collectionView!.rx.items(dataSource: GiphyCollectionViewController.datasource()))
-            .disposed(by: disposeBag)
+        sectionManager.bind(to: self.collectionView!)
         
         // touches
         Observable.of(
@@ -44,7 +38,7 @@ class GiphyCollectionViewController: UICollectionViewController {
             .subscribe(onNext: { item in
                 print("Tapped on: \(item)")
             })
-            .disposed(by: disposeBag)
+            .disposed(by: sectionManager.disposeBag)
     }
 }
 
@@ -104,26 +98,7 @@ extension GiphyCollectionViewController {
         return cvAnimatedDataSource
     }
     
-    // MARK: Initial value
-    
-    func initialSections() -> [GiphySection] {
-        let nSections = 1
-        let nItems = 2
-        return (0 ..< nSections).map { (i: Int) in
-            GiphySection(header: "GiphySection \(i + 1)", items: `$`(Array(i * nItems ..< (i + 1) * nItems)), updated: Date())
-        }
-    }
     
     
-}
-
-func `$`(_ items: [Int]) -> [GiphyItem] {
-    // While they all have a different identifier, all our stubbed videos contain the same video url.
-    return items.map {
-        var item = GiphyItem()
-        item.id = String(describing:$0)
-        item.url = GiphyCollectionViewCell.DEFAULT_VIDEO_URL
-        item.date = Date()
-        return item
-    }
+    
 }
