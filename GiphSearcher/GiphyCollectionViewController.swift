@@ -19,7 +19,7 @@ private let itemsPerRow: CGFloat = 3
 class GiphyCollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var refreshButton : UIBarButtonItem?
-    var sections = [GiphySection]()
+    var sections : Variable<[GiphySection]> = Variable([])
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -27,27 +27,13 @@ class GiphyCollectionViewController: UICollectionViewController {
         self.collectionView!.dataSource = nil
         self.collectionView!.delegate = nil // needs to be nil because for some reason storyboard will set it to this class even though I removed the outlets.
         
-        sections = initialSections()
+
+        initialSections().forEach({ section in
+            self.sections.value.append(section)
+        })
         
-        let ticks = Observable<Int>.interval(1, scheduler: MainScheduler.instance).map { _ in () }
-        let sectionsObserver = Observable.of(ticks, (refreshButton?.rx.tap.asObservable())!)
-            .merge()
-            .scan(sections) { a, _ in
-                return a
-            }
-//            .map { a in
-//                return a.sections
-//            }
-            .share(replay: 1)
-        
-        let (configureCollectionViewCell, configureSupplementaryView) =  GiphyCollectionViewController.collectionViewDataSourceUI()
-        let cvAnimatedDataSource = RxCollectionViewSectionedAnimatedDataSource(
-            configureCell: configureCollectionViewCell,
-            configureSupplementaryView: configureSupplementaryView
-        )
-        
-        sectionsObserver
-            .bind(to: collectionView!.rx.items(dataSource: cvAnimatedDataSource))
+        sections.asObservable()
+            .bind(to: collectionView!.rx.items(dataSource: GiphyCollectionViewController.datasource()))
             .disposed(by: disposeBag)
         
         // touches
@@ -88,10 +74,12 @@ extension GiphyCollectionViewController : UICollectionViewDelegateFlowLayout {
 // MARK: RxDatasources Styling
 extension GiphyCollectionViewController {
     
-    static func collectionViewDataSourceUI() -> (
+    typealias GiphyDatasourceUI = (
         CollectionViewSectionedDataSource<GiphySection>.ConfigureCell,
         CollectionViewSectionedDataSource<GiphySection>.ConfigureSupplementaryView
-        ) {
+    )
+    
+    static func collectionViewDataSourceUI() -> GiphyDatasourceUI {
             return (
                 { (_, cellview, indexpath, item) in
                     let cell = cellview.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexpath) as! GiphyCollectionViewCell
@@ -105,6 +93,15 @@ extension GiphyCollectionViewController {
                     return section
             }
             )
+    }
+    
+    static func datasource() -> RxCollectionViewSectionedAnimatedDataSource<GiphySection> {
+        let (configureCollectionViewCell, configureSupplementaryView) =  GiphyCollectionViewController.collectionViewDataSourceUI()
+        let cvAnimatedDataSource = RxCollectionViewSectionedAnimatedDataSource(
+            configureCell: configureCollectionViewCell,
+            configureSupplementaryView: configureSupplementaryView
+        )
+        return cvAnimatedDataSource
     }
     
     // MARK: Initial value
