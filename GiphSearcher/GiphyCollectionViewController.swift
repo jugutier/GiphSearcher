@@ -31,16 +31,12 @@ class GiphyCollectionViewController: UICollectionViewController {
         
 
         sectionManager.bind(to: collectionView)
-        
-        /**
-         TODO: Understand how to get bindings to work here.
-         
+
         GiphyApiManager.getTrending(completion: { items in
             self.sectionManager.sections.value[0].items.append(contentsOf: items)
             debugPrint("Received \(items.count) trending values")
-            collectionView.reloadData() // I am aware that reloadData violates the Rx bindings, but because I couldn't get the observers to work I still decided to try.
         })
-         **/
+        
         
         // touches
         Observable.of(
@@ -128,9 +124,9 @@ extension GiphyCollectionViewController {
             )
     }
     
-    static func datasource() -> RxCollectionViewSectionedAnimatedDataSource<GiphySection> {
+    static func datasource() -> RxCollectionViewSectionedReloadDataSource<GiphySection> {
         let (configureCollectionViewCell, configureSupplementaryView) =  GiphyCollectionViewController.collectionViewDataSourceUI()
-        let cvAnimatedDataSource = RxCollectionViewSectionedAnimatedDataSource(
+        let cvAnimatedDataSource = RxCollectionViewSectionedReloadDataSource(
             configureCell: configureCollectionViewCell,
             configureSupplementaryView: configureSupplementaryView
         )
