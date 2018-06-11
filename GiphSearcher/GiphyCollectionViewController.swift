@@ -107,9 +107,9 @@ extension GiphyCollectionViewController {
     
     // MARK: Initial value
     
-    func initialValue() -> [GiphySection] {
+    func initialSections() -> [GiphySection] {
         let nSections = 1
-        let nItems = 10        
+        let nItems = 2
         return (0 ..< nSections).map { (i: Int) in
             GiphySection(header: "GiphySection \(i + 1)", items: `$`(Array(i * nItems ..< (i + 1) * nItems)), updated: Date())
         }

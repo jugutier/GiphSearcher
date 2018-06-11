@@ -48,7 +48,10 @@ extension GiphyItem : IdentifiableType, Equatable {
 // MARK: Debugging
 extension GiphyItem : CustomDebugStringConvertible {
     var debugDescription: String {
-        return "GiphyItem(identifier: \(String(describing: id)), url: \(String(describing: url)), date: \(date!.timeIntervalSince1970))"
+        let debug_id = id ?? ""
+        let debug_url = url ?? ""
+        let debug_date = date?.timeIntervalSince1970 ?? 0
+        return "GiphyItem(identifier: \(debug_id), url: \(debug_url), date: \(debug_date))"
     }
 }
 
