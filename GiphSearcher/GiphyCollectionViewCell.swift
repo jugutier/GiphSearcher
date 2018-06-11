@@ -29,6 +29,7 @@ class GiphyCollectionViewCell: UICollectionViewCell {
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = self.bounds
             self.layer.addSublayer(playerLayer)
+            player?.volume = 0.0
             player?.autoplay()
             player?.play()
         }
