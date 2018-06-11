@@ -100,6 +100,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="refreshButton" destination="ju2-Qj-Oc9" id="rOs-Q7-9ji"/>
+                        <outlet property="searchTextField" destination="0cS-Nu-Szk" id="EhK-9v-utG"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VBC-bN-HnN" userLabel="First Responder" sceneMemberID="firstResponder"/>

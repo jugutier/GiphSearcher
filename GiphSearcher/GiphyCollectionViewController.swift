@@ -19,6 +19,7 @@ private let itemsPerRow: CGFloat = 3
 class GiphyCollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var refreshButton : UIBarButtonItem?
+    @IBOutlet weak var searchTextField : UITextField?
 
     let sectionManager = SectionManager()
     
