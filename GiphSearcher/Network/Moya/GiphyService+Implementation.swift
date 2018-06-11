@@ -37,6 +37,25 @@ extension GiphyService: TargetType {
     
     var sampleData: Data {
         switch self {
+        case .trending:
+            //API contains much more data, but only showing the structure of what we are interacting with here.
+            return """
+                    {
+                        "data": [
+                            {
+                            "id": "3oz8xPxfN9pQ8GVhXq"
+                            },
+                            "images": {
+                                "downsized": {
+                                    "url": "https://media3.giphy.com/media/3oz8xPxfN9pQ8GVhXq/giphy-downsized.gif",
+                                    "width": "480",
+                                    "height": "270",
+                                    "size": "1149695"
+                                }
+                            }
+                        ]
+                    }
+                    """.utf8Encoded
         default:
             return "Hello world!".utf8Encoded
         }
