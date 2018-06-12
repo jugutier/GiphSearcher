@@ -9,6 +9,7 @@
 import UIKit
 import Moya
 import Moya_ModelMapper
+import RxSwift
 
 class GiphyApiManager: NSObject {
     
@@ -29,6 +30,29 @@ class GiphyApiManager: NSObject {
                     print(error)
                 }
             }
+    }
+    
+    static func rxSearch(query: String) -> Observable<[GiphyItem]>{
+        provider.request
+        return Observable.create { [weak provider] observer in
+            let cancellableToken = provider?.rx.request(.search(query: query))
+                .map(GiphyResponse.self)
+                .subscribe { event in
+                    switch event {
+                case let .success(response):
+                    let items = response.data ?? [GiphyItem]()
+                    observer.onNext(items)
+                    observer.onCompleted()
+                    break
+                case let .error(error):
+                    observer.onError(error)
+                }
+            }
+            
+            return Disposables.create() {
+                cancellableToken?.dispose()
+            }
+            }.observeOn(SerialDispatchQueueScheduler(qos: .background))
     }
     
     static func search(query: String, completion: @escaping GiphyItemRequestCompletion) {
