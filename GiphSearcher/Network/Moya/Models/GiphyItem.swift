@@ -19,7 +19,7 @@ struct GiphyItem : Mappable , Decodable {
     var date: Date?
     
     var url: String? {
-        return images?.downsized_small?.mp4 ?? GiphyCollectionViewCell.DEFAULT_VIDEO_URL
+        return images?.downsized?.url ?? GiphyCollectionViewCell.DEFAULT_VIDEO_URL
     }
 
     // Mapper init

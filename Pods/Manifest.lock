@@ -27,6 +27,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
   - SwiftDate (4.5.1)
+  - SwiftGifOrigin (1.6.1)
 
 DEPENDENCIES:
   - Kingfisher (~> 4.8)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - RxDataSources (~> 3.0)
   - RxSwift (~> 4.0)
   - SwiftDate (~> 4.5)
+  - SwiftGifOrigin (~> 1.6.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -50,6 +52,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - SwiftDate
+    - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -63,7 +66,8 @@ SPEC CHECKSUMS:
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
 
-PODFILE CHECKSUM: 1734625b2451e5073d4b592474234086ab1f8736
+PODFILE CHECKSUM: afde62d7eaefbf0358606a779f3698e1680d4d67
 
 COCOAPODS: 1.5.3
