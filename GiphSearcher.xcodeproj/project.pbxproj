@@ -27,6 +27,7 @@
 		7196F1B620CE0D8F005DE60B /* SectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F1B520CE0D8F005DE60B /* SectionManager.swift */; };
 		7196F1B820CE370B005DE60B /* GiphyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F1B720CE370B005DE60B /* GiphyImage.swift */; };
 		7196F1BA20CE3890005DE60B /* GiphyDownsizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F1B920CE3890005DE60B /* GiphyDownsizedImage.swift */; };
+		7196F1BE20CF641D005DE60B /* GifProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7196F1BD20CF641D005DE60B /* GifProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		7196F1B520CE0D8F005DE60B /* SectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionManager.swift; sourceTree = "<group>"; };
 		7196F1B720CE370B005DE60B /* GiphyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyImage.swift; sourceTree = "<group>"; };
 		7196F1B920CE3890005DE60B /* GiphyDownsizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyDownsizedImage.swift; sourceTree = "<group>"; };
+		7196F1BD20CF641D005DE60B /* GifProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifProcessor.swift; sourceTree = "<group>"; };
 		A9C6211403F171DB72842401 /* Pods-GiphSearcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcher/Pods-GiphSearcher.debug.xcconfig"; sourceTree = "<group>"; };
 		C9D27309650305F68CBBAC57 /* Pods-GiphSearcherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphSearcherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphSearcherTests/Pods-GiphSearcherTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF8CA7180082B527A6F42409 /* Pods_GiphSearcherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphSearcherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 			children = (
 				7196F19520CD9408005DE60B /* Moya */,
 				7196F19A20CD984D005DE60B /* GiphyApiManager.swift */,
+				7196F1BD20CF641D005DE60B /* GifProcessor.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
