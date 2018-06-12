@@ -19,6 +19,7 @@ private let itemsPerRow: CGFloat = 3
 class GiphyCollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var refreshButton : UIBarButtonItem?
+    @IBOutlet weak var searchTextField : UITextField?
 
     let sectionManager = SectionManager()
     
@@ -74,6 +75,48 @@ extension GiphyCollectionViewController : UICollectionViewDelegateFlowLayout {
 
 
 extension GiphyCollectionViewController : UITextFieldDelegate {
+    
+    func bindSearch(to collectionView :UICollectionView) {
+        let searchResults = searchTextField?.rx.text.orEmpty
+            .throttle(0.3, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .flatMapLatest { query -> Observable<[GiphyItem]> in
+                if query.isEmpty {
+                    return .just([])
+                }
+                return GiphyApiManager.rxSearch(query: query)
+                    .catchErrorJustReturn([])
+            }
+            .observeOn(MainScheduler.instance)
+
+        /** TODO we have a Observable<[GiphyItem]>
+         this should be binded to the first section's results if we wanted to do this the rx way
+         yet there doesn't seem to be a combintion I can find that will satisfy the type system.
+        searchResults.bind(to: sectionManager.sections.value) {
+            (_, cellview, indexpath, item) in
+            let cell = cellview.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexpath) as! GiphyCollectionViewCell
+            cell.url = item.url ?? ""
+            return cell
+
+        }
+         **/
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let searchQuery = string
+        if searchQuery == "" {
+            return false
+        }
+        GiphyApiManager.search(query: searchQuery) {
+            items in
+            
+            print("Found \(items.count) matching \(searchQuery)")
+            self.sectionManager.sections.value[0].items.removeAll()
+            self.sectionManager.sections.value[0].items.append(contentsOf: items)
+        }
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         textField.addSubview(activityIndicator)
@@ -81,14 +124,12 @@ extension GiphyCollectionViewController : UITextFieldDelegate {
         activityIndicator.startAnimating()
         
         let searchQuery = textField.text ?? ""
-        /**
-         TODO: Understand how to get bindings to work here.
-         **/
         GiphyApiManager.search(query: searchQuery) {
             items in
             activityIndicator.removeFromSuperview()
             
             print("Found \(items.count) matching \(searchQuery)")
+            self.sectionManager.sections.value[0].items.removeAll()
             self.sectionManager.sections.value[0].items.append(contentsOf: items)
             self.collectionView?.reloadData()
         }

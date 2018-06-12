@@ -14,6 +14,7 @@ class GiphyCollectionViewCell: UICollectionViewCell {
     
     static let DEFAULT_VIDEO_URL = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
     var player: AVPlayer?
+    var playerLayer: AVPlayerLayer?
     
     var _url : String?
     var url : String {
@@ -24,14 +25,19 @@ class GiphyCollectionViewCell: UICollectionViewCell {
             if let _ = URL(string: newValue) {
                 _url = newValue // Store new string value if it's a valid url..
             }
+            if let currentLayer = playerLayer {
+                currentLayer.removeFromSuperlayer()
+            }
             let videoURL = URL(string: url)! // Use getter to get extra validations
-            player = AVPlayer(url: videoURL)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = self.bounds
-            self.layer.addSublayer(playerLayer)
-            player?.volume = 0.0
-            player?.autoplay()
-            player?.play()
+            let nextPlayer = AVPlayer(url:videoURL)
+            let nextPlayerLayer = AVPlayerLayer(player: nextPlayer)
+            nextPlayerLayer.frame = self.bounds
+            self.layer.addSublayer(nextPlayerLayer)
+            nextPlayer.volume = 0.0
+            nextPlayer.autoplay()
+            nextPlayer.play()
+            player = nextPlayer
+            playerLayer = nextPlayerLayer
         }
     }
 }
