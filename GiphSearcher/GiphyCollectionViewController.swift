@@ -75,6 +75,22 @@ extension GiphyCollectionViewController : UICollectionViewDelegateFlowLayout {
 
 
 extension GiphyCollectionViewController : UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let searchQuery = string
+        if searchQuery == "" {
+            return false
+        }
+        GiphyApiManager.search(query: searchQuery) {
+            items in
+            
+            print("Found \(items.count) matching \(searchQuery)")
+            self.sectionManager.sections.value[0].items.removeAll()
+            self.sectionManager.sections.value[0].items.append(contentsOf: items)
+        }
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         textField.addSubview(activityIndicator)
