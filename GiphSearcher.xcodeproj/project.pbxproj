@@ -342,6 +342,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -356,6 +357,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -373,6 +375,7 @@
 				7196F19920CD951B005DE60B /* GiphyService+Implementation.swift in Sources */,
 				7196F1AA20CDF265005DE60B /* GiphyResponse.swift in Sources */,
 				7196F19720CD9445005DE60B /* GiphyService.swift in Sources */,
+				7196F1BE20CF641D005DE60B /* GifProcessor.swift in Sources */,
 				7196F19B20CD984D005DE60B /* GiphyApiManager.swift in Sources */,
 				7196F1A820CDCC8C005DE60B /* GiphyItem.swift in Sources */,
 				7196F1B620CE0D8F005DE60B /* SectionManager.swift in Sources */,

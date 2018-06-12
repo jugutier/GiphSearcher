@@ -12,6 +12,7 @@ target 'GiphSearcher' do
     pod 'RxDataSources', '~> 3.0'
 	pod 'Kingfisher', '~> 4.8'
 	pod 'SwiftDate', '~> 4.5'
+    pod 'SwiftGifOrigin', '~> 1.6.1'
     
 	target 'GiphSearcherTests' do
     	inherit! :search_paths
