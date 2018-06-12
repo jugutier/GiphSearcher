@@ -82,14 +82,12 @@ extension GiphyCollectionViewController : UITextFieldDelegate {
         activityIndicator.startAnimating()
         
         let searchQuery = textField.text ?? ""
-        /**
-         TODO: Understand how to get bindings to work here.
-         **/
         GiphyApiManager.search(query: searchQuery) {
             items in
             activityIndicator.removeFromSuperview()
             
             print("Found \(items.count) matching \(searchQuery)")
+            self.sectionManager.sections.value[0].items.removeAll()
             self.sectionManager.sections.value[0].items.append(contentsOf: items)
             self.collectionView?.reloadData()
         }

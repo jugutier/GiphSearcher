@@ -32,15 +32,16 @@ class GiphyApiManager: NSObject {
     }
     
     static func search(query: String, completion: @escaping GiphyItemRequestCompletion) {
-        provider.request(.search(query: query)) { result in
-            switch result {
-            case let .success(moyaResponse):
-                let data = moyaResponse.data // Data, your JSON response is probably in here!
-                let statusCode = moyaResponse.statusCode // Int - 200, 401, 500, etc
-                let dataString = data.prettyJSON() // Using convenience method we created
-                debugPrint("Received search data \(statusCode)-- : \(dataString)")
-            case let .failure(error):
-                debugPrint("error! -- \(error)")
+        let _ = provider.rx.request(.search(query: query))
+            .map(GiphyResponse.self)
+            .subscribe { event in
+            switch event {
+                case let .success(response):
+                    let items = response.data ?? [GiphyItem]()
+                    completion(items)
+                    debugPrint("Received search data \(items.count)-- : \(items)")
+                case let .error(error):
+                    debugPrint("error! -- \(error)")
             }
         }
     }
