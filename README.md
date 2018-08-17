@@ -4,7 +4,11 @@ Have you tried sending GIFs through whatsapp recently?
 
 If so you've probably seen something like this:
 
-`Insert caption url`
+![Whatsapp version of a GIF search Grid](https://github.com/jugutier/GiphSearcher/raw/master/Screenshots/GIF.gif)
+
+Ours ends up looking like this:
+
+![Our version of a GIF search Grid](https://github.com/jugutier/GiphSearcher/raw/master/Screenshots/GIFme.gif)
 
 This is a weekend project with the goal replicating that GIF search grid using the latest greatest libraries out there.
 
